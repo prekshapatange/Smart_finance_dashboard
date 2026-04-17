@@ -1,0 +1,556 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+body {
+  pointer-events: fill !important;
+  font-family: "Onest", sans-serif !important;
+}
+
+.recurring-control button span{
+  text-transform: capitalize !important;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --bg-color: #f6f7f9;
+  --secondary-dark-color: #1a1e2a;
+  --max-width: 78rem;
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.723 0.219 149.579);
+  --primary-foreground: oklch(0.982 0.018 155.826);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.723 0.219 149.579);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.723 0.219 149.579);
+  --sidebar-primary-foreground: oklch(0.982 0.018 155.826);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.723 0.219 149.579);
+}
+
+.dark {
+  --bg-color: #f6f7f9;
+  --secondary-dark-color: #1a1e2a;
+  --max-width: 78rem;
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.696 0.17 162.48);
+  --primary-foreground: oklch(0.393 0.095 152.535);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.527 0.154 150.069);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.696 0.17 162.48);
+  --sidebar-primary-foreground: oklch(0.393 0.095 152.535);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.527 0.154 150.069);
+}
+
+.harry-potter {
+  --bg-color: #0a0a0a;
+  --secondary-dark-color: #1a1e2a;
+  --max-width: 78rem;
+  --background: oklch(0.05 0.02 270);
+  --foreground: oklch(0.98 0.03 50);
+  --card: oklch(0.08 0.015 275);
+  --card-foreground: oklch(0.98 0.03 50);
+  --popover: oklch(0.08 0.015 275);
+  --popover-foreground: oklch(0.98 0.03 50);
+  --primary: oklch(0.85 0.3 45);
+  --primary-foreground: oklch(0.05 0.02 270);
+  --secondary: oklch(0.15 0.02 280);
+  --secondary-foreground: oklch(0.98 0.03 50);
+  --muted: oklch(0.15 0.02 280);
+  --muted-foreground: oklch(0.7 0.03 280);
+  --accent: oklch(0.15 0.02 280);
+  --accent-foreground: oklch(0.98 0.03 50);
+  --destructive: oklch(0.7 0.25 15);
+  --border: oklch(0.2 0.02 280);
+  --input: oklch(0.1 0.015 275);
+  --ring: oklch(0.85 0.3 45);
+  --chart-1: oklch(0.85 0.3 45);
+  --chart-2: oklch(0.7 0.25 15);
+  --chart-3: oklch(0.6 0.2 270);
+  --chart-4: oklch(0.9 0.25 120);
+  --chart-5: oklch(0.75 0.22 200);
+  --sidebar: oklch(0.08 0.015 275);
+  --sidebar-foreground: oklch(0.98 0.03 50);
+  --sidebar-primary: oklch(0.85 0.3 45);
+  --sidebar-primary-foreground: oklch(0.05 0.02 270);
+  --sidebar-accent: oklch(0.15 0.02 280);
+  --sidebar-accent-foreground: oklch(0.98 0.03 50);
+  --sidebar-border: oklch(0.2 0.02 280);
+  --sidebar-ring: oklch(0.85 0.3 45);
+}
+
+.harry-potter * {
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.harry-potter .card, .harry-potter .button, .harry-potter .input {
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.harry-potter .card:hover, .harry-potter .button:hover {
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.4), inset 0 0 30px rgba(255, 215, 0, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Cinematic Harry Potter Effects */
+.harry-potter {
+  animation: magicalPulse 8s ease-in-out infinite;
+}
+
+@keyframes magicalPulse {
+  0%, 100% { filter: brightness(1) contrast(1); }
+  50% { filter: brightness(1.05) contrast(1.02); }
+}
+
+.harry-potter .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.harry-potter .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+  animation: magicalShimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes magicalShimmer {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.harry-potter .button {
+  position: relative;
+  overflow: hidden;
+}
+
+.harry-potter .button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+}
+
+.harry-potter .button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.harry-potter input:focus {
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+  border-color: #FFD700;
+  animation: magicalFocus 0.3s ease-out;
+}
+
+@keyframes magicalFocus {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.harry-potter .navbar {
+  background: linear-gradient(135deg, rgba(10, 0, 26, 0.95) 0%, rgba(26, 0, 51, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
+}
+
+.harry-potter .chart-container {
+  background: linear-gradient(135deg, rgba(15, 5, 35, 0.8) 0%, rgba(30, 10, 60, 0.8) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: inset 0 0 20px rgba(138, 43, 226, 0.1), 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.harry-potter .stat-card {
+  background: linear-gradient(135deg, rgba(20, 10, 40, 0.9) 0%, rgba(40, 20, 80, 0.9) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  position: relative;
+}
+
+.harry-potter .stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #FFD700, #8A2BE2, #FFD700);
+  animation: magicalBorder 2s ease-in-out infinite;
+}
+
+@keyframes magicalBorder {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-[var(--bg-color)] dark:bg-background text-foreground;
+  }
+}
+
+
+/* --chart-1: oklch(0.37 0.14 146.5);
+--chart-2: oklch(0.65 0.16 147.2);
+--chart-3: oklch(0.48 0.19 148.6);
+--chart-4: oklch(0.28 0.11 145.8);
+--chart-5: oklch(0.18 0.08 147.0); */
+
+/* Add this to your global CSS file (e.g., index.css or globals.css) */
+
+/* Light Theme Variables */
+.light {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+}
+
+/* Harry Potter Theme Variables */
+.harry-potter {
+  /* Deep magical backgrounds */
+  --background: 265 60% 8%;
+  --foreground: 45 100% 85%;
+  
+  /* Card colors with magical tint */
+  --card: 265 50% 12%;
+  --card-foreground: 45 100% 90%;
+  
+  /* Popover colors */
+  --popover: 265 55% 10%;
+  --popover-foreground: 45 100% 90%;
+  
+  /* Primary golden accent */
+  --primary: 45 93% 47%;
+  --primary-foreground: 265 60% 10%;
+  
+  /* Secondary purple accent */
+  --secondary: 270 60% 30%;
+  --secondary-foreground: 45 100% 90%;
+  
+  /* Muted tones */
+  --muted: 265 40% 20%;
+  --muted-foreground: 45 50% 70%;
+  
+  /* Accent colors */
+  --accent: 280 60% 40%;
+  --accent-foreground: 45 100% 90%;
+  
+  /* Destructive */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 45 100% 90%;
+  
+  /* Borders and inputs */
+  --border: 45 60% 30%;
+  --input: 265 40% 25%;
+  --ring: 45 93% 47%;
+  
+  --radius: 0.5rem;
+}
+
+/* Base body styling */
+body.light {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+body.harry-potter {
+  background: linear-gradient(to bottom, #0a0a1a 0%, #1a0a2e 50%, #2d1b4e 100%);
+  color: hsl(var(--foreground));
+  min-height: 100vh;
+}
+
+/* Gradient utilities */
+.bg-gradient-radial {
+  background-image: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Text contrast fixes for Harry Potter theme */
+.harry-potter .text-muted-foreground {
+  color: hsl(45 50% 70%) !important;
+}
+
+.harry-potter .text-gray-300 {
+  color: hsl(45 40% 80%) !important;
+}
+
+.harry-potter .text-gray-400 {
+  color: hsl(45 30% 65%) !important;
+}
+
+.harry-potter .text-gray-700 {
+  color: hsl(45 60% 85%) !important;
+}
+
+/* Ensure proper text visibility on cards */
+.harry-potter [class*="text-sm"],
+.harry-potter [class*="text-xs"] {
+  opacity: 0.9;
+}
+
+/* Enhanced animations */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Scrollbar styling for Harry Potter theme */
+.harry-potter ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.harry-potter ::-webkit-scrollbar-track {
+  background: rgba(45, 27, 78, 0.3);
+  border-radius: 5px;
+}
+
+.harry-potter ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d97706, #b45309);
+  border-radius: 5px;
+  border: 2px solid rgba(45, 27, 78, 0.3);
+}
+
+.harry-potter ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #f59e0b, #d97706);
+}
+
+/* Light theme scrollbar */
+.light ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 5px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Input and select styling for HP theme */
+.harry-potter input,
+.harry-potter select,
+.harry-potter textarea {
+  background: rgba(139, 92, 246, 0.1) !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+  color: hsl(45 100% 90%) !important;
+}
+
+.harry-potter input::placeholder,
+.harry-potter textarea::placeholder {
+  color: hsl(45 40% 60%) !important;
+}
+
+.harry-potter input:focus,
+.harry-potter select:focus,
+.harry-potter textarea:focus {
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.1) !important;
+}
+
+/* Button improvements for HP theme */
+.harry-potter button:not(.bg-gradient-to-r) {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+  color: hsl(45 100% 90%) !important;
+}
+
+.harry-potter button:hover:not(.bg-gradient-to-r) {
+  background: rgba(139, 92, 246, 0.3) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+/* Table styling for HP theme */
+.harry-potter table {
+  border-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+.harry-potter th {
+  background: rgba(139, 92, 246, 0.1) !important;
+  color: hsl(45 100% 90%) !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.harry-potter td {
+  border-color: rgba(245, 158, 11, 0.1) !important;
+  color: hsl(45 80% 85%) !important;
+}
+
+.harry-potter tr:hover {
+  background: rgba(139, 92, 246, 0.05) !important;
+}
+
+/* Modal/Dialog styling for HP theme */
+.harry-potter [role="dialog"],
+.harry-potter [role="alertdialog"] {
+  background: linear-gradient(to bottom right, rgba(109, 40, 217, 0.3), rgba(88, 28, 135, 0.3)) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Dropdown menu styling for HP theme */
+.harry-potter [role="menu"],
+.harry-potter [role="listbox"] {
+  background: rgba(45, 27, 78, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+.harry-potter [role="menuitem"]:hover,
+.harry-potter [role="option"]:hover {
+  background: rgba(139, 92, 246, 0.2) !important;
+}
+
+/* Separator styling */
+.harry-potter [data-orientation="horizontal"],
+.harry-potter [data-orientation="vertical"] {
+  background: rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Badge/Tag styling for HP theme */
+.harry-potter .badge,
+.harry-potter [class*="badge"] {
+  background: rgba(139, 92, 246, 0.2) !important;
+  color: hsl(45 100% 90%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
