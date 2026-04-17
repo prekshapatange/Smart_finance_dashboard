@@ -20,10 +20,14 @@ A full-stack personal finance management system that helps users track income, e
 
 ### Backend
 cd backend
+
 npm install
+
 npm run dev
 
 ### Frontend
 cd client
+
 npm install
+
 npm run dev
